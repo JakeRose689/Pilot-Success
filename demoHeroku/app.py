@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 import pandas as pd 
 import pickle
 import json
+import math
 
 #IMPORT ALL THE THINGS
 from sklearn.model_selection import train_test_split
@@ -39,7 +40,7 @@ def index():
 @app.route("/predict", methods=["GET", 'POST'])
 def predict():
         #Line below will load your machine learning model
-    Output = "Your Value Here!"
+    # Output = "Your Value Here!"
     
     if request.method == 'POST': 
 
@@ -53,12 +54,14 @@ def predict():
         input_2=request.json.get("start_month_json")
         input_3=request.json.get("classes_taken_json")
         input_4=request.json.get("expected_days_json")
+        input_5=request.json.get("max_flight_hours")
 
         #update value to integer
         var1 = int(input_1)
         var2 = int(input_2)
         var3 = int(input_3)
         var4 = int(input_4)
+        var5 = int(input_5)*240
         
         input_list = ["coursename", "start_month", "course_count", "e2e_course_days"]
 
@@ -68,9 +71,24 @@ def predict():
         
         Guess = loaded_model.predict(scaled_user_input)
 
-        return {"Prediction": Guess[0]}
+        Max_Income = var5
+
+        Actual_Cost = Guess[0]*175
+
+        Actual_Income = Guess[0]*240
+
+        if Actual_Income > Max_Income:
+            Set_Income = Max_Income
+        else: 
+            Set_Income = Actual_Income
         
-    return render_template("prediction.html",Output=Output)
+        Net_Income = Set_Income - Actual_Cost
+
+        Income_Ratio = Net_Income / Set_Income
+
+        return {"Prediction": Guess[0],"Max_Income":Max_Income,"Actual_Income":Actual_Income,"Cost":Actual_Cost,"Net_Income":Net_Income,"Income_Pct":Income_Ratio}
+        
+    return render_template("prediction.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

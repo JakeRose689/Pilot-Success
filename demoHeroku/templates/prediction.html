@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Project</title>
-    <!--Note this is bootstrap 5-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Final Project</title>
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/style.css">
     
-    <!--Link to Style Sheet-->
-    <link rel="stylesheet" href="../static/css/style.css">
-
-</head>
+    <!--Some dumb scripts I finally realized i had to add to get the dropdown to work-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head> 
+    
+    <body class="back">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/">LIFT Project Overview</a>
+      
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/predict">Profitability Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/JakeRose689/Pilot-Success">Project Github Repo</a>
+          </li>
+          
+      
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Team Members Github
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://github.com/staceyj118">Stacey Smoot</a>
+              <a class="dropdown-item" href="https://github.com/JakeRose689">Jake Rose</a>
+              <a class="dropdown-item" href="https://github.com/andyob715">Andy O'Bryan</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
 
 <body>  
-    <div class='container'>
+    <div class='container-fluid'>
         <div class="jumbotron"> 
-            <h3 class='display-1'> Lift Academy Student Profitability Calculator </h3>
-            <p class="lead">Evaluate Profitability of Student</p>
-            <p>Select student valiables then "CLICK to Calculate"</p>
+            <h3 class='display-1'> Lift Academy Student <br>
+                Profitability Calculator </h3>
+                <p class="lead">Evaluate Profitability of Student</p>
             <br>
-        </div>
+        </div> <!--closes jumbotron-->
     
         <!-- start of selection & prediction form -->
+        <br>
             <div class="row">
                     <!--list for Course Name-->
                 <div class="col">
-                    <div id="course">
-                            <br>
-                            <label for="course_input">Select Course Name:</label>
-                            <br>
+                    <br>
+                    <label for="course_input">Select Course Name:</label>
+                        <br>
                             <select id="course_input" name="course_input">
                                 <option selected value="13">Please Make A Selection:</option>
                                 <option value="1">1 Intro</option>
@@ -42,14 +73,36 @@
                                 <option value="8">8 CFII</option>
                                 <option value="9">9 MEI</option>
                             </select>
+                </div>
 
-                                <!--list for Start Month-->
-                    <div class="col">
-                        <div id="start_input">
-                            <br>
-                            <label for="start_month">Start Month:</label>
-                            <br>
+                <!--list for Start Month-->
+                <div class="col">
+                    <br>
+                    <label for="start_month">Start Month:</label>
+                        <br>
                             <select id="start_month" name="start_month">
+                                <option selected value="13">Please Make A Selection:</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                </div>
+
+                <!--list for Classes Taken-->
+                <div class="col">
+                    <br>
+                        <label for="classes_taken">Previous Classes Taken:</label>
+                            <br>
+                            <select id="classes_taken" name="classes_taken">
                                 <option selected value="13">Please Make A Selection:</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -58,72 +111,47 @@
                                 <option value="5">5</option>
                                 <option value="6">6</option>
                                 <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
                             </select>
-
-                                <!--list for Classes Taken-->
-                                <div class="col">
-                                    <div id="classes_input">
-                                        <br>
-                                        <label for="classes_taken">Previous Classes Taken:</label>
-                                        <br>
-                                        <select id="classes_taken" name="classes_taken">
-                                            <option selected value="13">Please Make A Selection:</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                        </select>
+                </div>
                                 
-                                        <!--list for Classes Taken-->
-                                        <div class="col">
-                                            <label for="expected_days">Expected Days to Complete</label>
-                                            <input class="form-control form-control-lg" type="text" placeholder="Enter Expected Days" name="expected_days" id="expected_days">
-                                            </input>
-<div class = "row">
-                    <div class="col-md-3">
+                <!--list for Classes Taken-->
+                <div class="col">
+                    <br>
+                    <label for="expected_days">Expected Days to Complete</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Enter Expected Days" name="expected_days" id="expected_days"></input>
+                </div>
+                
+                <div class="col">
+                    <br>
+                    <br>
                         <button onclick="calchours()" class="btn btn-primary">Submit</button>
-                    </div>
+                </div>
             </div>
-            <div class='col-sm-4 d-flex align-items-center justify-content-start'>
+            </div>
+            <br>
+            <hr>
+            <h4>Results</h4>
                 <div class='row'>
-                    </div>
                     <p>Predicted Flight Hours</p>
-                    <div class = 'col-sm-10 d-flex border border-dark justify-content-center align-items-center' id='prediction'>
-                        {{Output}}
-                    </div>
+                    <div class = 'col' id='prediction'></div>
+                        <br>
+                    <p>Predicted Income Percentage</p>
+                    <div class = 'col' id='income_pct'></div>
                 </div>
             </div> 
         </div>
     </div>
     <!-- Footer-->
     <div id="footer" class="main_background">
-        <p class="footer-text">GroupName&copy;2021</p>
+        <p class="footer-text">SOAR-JS&copy;2021</p>
     </div>
 
 <!-- Libraries-->
 
-    <!-- Jquery & Bootstrap-->
+    <!-- Jquery & Bootstrap
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-
-    <!--Mapping-->
-    <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script> -->
-  
-    <!-- Visuals (D3, Plotly, ChartsJS)-->
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+     -->
 
     <!-- Link to JS file-->
     <script type="text/javascript" src="../static/js/app.js"></script>
