@@ -16,6 +16,7 @@ LIFT Academy provided a Graduate Roster which included person id, student name, 
 - Testing Score of 0.938 
 - Root squared error (RMSE) of 10.150 
 - R-squared (R2) of 0.938
+
 The model was saved with use of pickle to use when building the website. Website was built using javascript and css 
 
 ## Prospects
@@ -23,7 +24,7 @@ The model was saved with use of pickle to use when building the website. Website
 In the future, exact monetary amounts per class can be added to better see the financial side of student commitment. In addition, more data can be compiled and added to the machine learning model to determine time dedication needed to fulfill the contract with Republic Airlines plus instructors needed to keep onboard at LIFT Academy. 
 
 ### Presentation 
-View powerpoint presentation: 
+View powerpoint presentation: ![](https://github.com/JakeRose689/Pilot-Success/blob/staceyj118/Presentation.pptx?raw=true)
 
 ### Contributors
 
