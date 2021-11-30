@@ -24,7 +24,7 @@ The model was saved with use of pickle to use when building the website. Website
 In the future, exact monetary amounts per class can be added to better see the financial side of student commitment. In addition, more data can be compiled and added to the machine learning model to determine time dedication needed to fulfill the contract with Republic Airlines plus instructors needed to keep onboard at LIFT Academy. 
 
 ### Presentation 
-![View Presentation](https://docs.google.com/presentation/d/1AoOeqrNQ7ZELtuqOkNGr0xmv0anaEUe-yoDIBlrvBks/edit?usp=sharing)
+![View Presentation](https://github.com/JakeRose689/Pilot-Success/blob/staceyj118/Pilot%20Success%20Google%20Presentation.pdf)
 
 ### Contributors
 
