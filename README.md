@@ -17,7 +17,7 @@ LIFT Academy provided a Graduate Roster which included person id, student name, 
 - Root squared error (RMSE) of 10.150 
 - R-squared (R2) of 0.938
 
-The model was saved with use of pickle to use when building the website. Website was built using javascript and css 
+The model was saved with use of pickle to use when building the website. Website was built using javascript and css then deployed through Heroku.
 
 ## Prospects
 
